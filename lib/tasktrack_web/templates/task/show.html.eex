@@ -3,13 +3,18 @@
 <ul>
 
   <li>
+    <strong>Complete:</strong>
+    <%= @task.complete %>
+  </li>
+
+  <li>
     <strong>Assignedto:</strong>
     <%= @task.assignedto %>
   </li>
 
   <li>
-    <strong>Assignedby:</strong>
-    <%= @task.assignedby %>
+    <strong>Description:</strong>
+    <%= @task.description %>
   </li>
 
   <li>
@@ -18,13 +23,8 @@
   </li>
 
   <li>
-    <strong>Complete:</strong>
-    <%= @task.complete %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @task.description %>
+    <strong>Assignedby:</strong>
+    <%= @task.assignedby %>
   </li>
 
 </ul>

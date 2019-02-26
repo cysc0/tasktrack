@@ -1,13 +1,13 @@
 <h1>Listing Tasks</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Assignedto</th>
-      <th>Assignedby</th>
-      <th>Duration</th>
-      <th>Complete</th>
-      <th>Description</th>
+      <th>Status</th>
+      <th>Assigned to</th>
+      <th>Description></th>
+      <th>Time spent></th>
+      <th>Assigned by</th>
 
       <th></th>
     </tr>
@@ -15,20 +15,26 @@
   <tbody>
 <%= for task <- @tasks do %>
     <tr>
-      <td><%= task.assignedto %></td>
-      <td><%= task.assignedby %></td>
-      <td><%= task.duration %></td>
       <td><%= task.complete %></td>
+      <td><%= task.assignedto %></td>
       <td><%= task.description %></td>
+      <td><%= task.duration %></td>
+      <td><%= task.assignedby %></td>
 
       <td>
-        <%= link "Show", to: Routes.task_path(@conn, :show, task) %>
-        <%= link "Edit", to: Routes.task_path(@conn, :edit, task) %>
-        <%= link "Delete", to: Routes.task_path(@conn, :delete, task), method: :delete, data: [confirm: "Are you sure?"] %>
+        <%= link "Show", to: Routes.task_path(@conn, :show, task),
+            class: "btn btn-secondary" %>
+        <%= link "Edit", to: Routes.task_path(@conn, :edit, task),
+            class: "btn btn-info" %>
+        <%= link "Delete", to: Routes.task_path(@conn, :delete, task),
+            method: :delete, data: [confirm: "Are you sure?"],
+            class: "btn btn-danger" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Task", to: Routes.task_path(@conn, :new) %></span>
+<span>
+  <%= link "New Task", to: Routes.task_path(@conn, :new), class: "btn btn-primary" %>
+</span>

@@ -5,27 +5,31 @@
     </div>
   <% end %>
 
-  <%= label f, :assignedto %>
-  <%= text_input f, :assignedto %>
-  <%= error_tag f, :assignedto %>
+  <div class="form-group">
+    <%= label f, :name %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
 
-  <%= label f, :assignedby %>
-  <%= text_input f, :assignedby %>
-  <%= error_tag f, :assignedby %>
+  <div class="form-group">
+    <%= label f, :desc %>
+    <%= textarea f, :desc, class: "form-control" %>
+    <%= error_tag f, :desc %>
+  </div>
 
-  <%= label f, :duration %>
-  <%= number_input f, :duration %>
-  <%= error_tag f, :duration %>
+  <div class="form-group">
+    <%= label f, :price %>
+    <%= number_input f, :price, step: "any", class: "form-control" %>
+    <%= error_tag f, :price %>
+  </div>
 
-  <%= label f, :complete %>
-  <%= checkbox f, :complete %>
-  <%= error_tag f, :complete %>
-
-  <%= label f, :description %>
-  <%= textarea f, :description %>
-  <%= error_tag f, :description %>
+  <div class="form-group">
+    <%= label f, :inventory %>
+    <%= number_input f, :inventory, class: "form-control" %>
+    <%= error_tag f, :inventory %>
+  </div>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>
