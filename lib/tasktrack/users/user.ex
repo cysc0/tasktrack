@@ -3,6 +3,7 @@ defmodule Tasktrack.Users.User do
   import Ecto.Changeset
 
   schema "users" do
+    field :admin, :boolean, default: false
     field :name, :string
 
     timestamps()
@@ -11,7 +12,7 @@ defmodule Tasktrack.Users.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :admin])
+    |> validate_required([:name, :admin])
   end
 end
