@@ -7,7 +7,7 @@
       <th>Assigned to</th>
       <th>Description></th>
       <th>Time spent></th>
-      <th>Assigned by</th>
+      <%# <th>Assigned by</th> %>
 
       <th></th>
     </tr>
@@ -19,7 +19,7 @@
       <td><%= task.assignedto %></td>
       <td><%= task.description %></td>
       <td><%= task.duration %></td>
-      <td><%= task.assignedby %></td>
+      <%# <td><%= task.assignedby %></td> %>
 
       <td>
         <%= link "Show", to: Routes.task_path(@conn, :show, task),

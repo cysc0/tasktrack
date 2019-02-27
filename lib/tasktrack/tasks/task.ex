@@ -3,19 +3,19 @@ defmodule Tasktrack.Tasks.Task do
   import Ecto.Changeset
 
   schema "tasks" do
-    field :assignedby, :string
-    field :assignedto, :string
     field :complete, :boolean, default: false
     field :description, :string
     field :duration, :integer
-
+    # belongs_to :assignedby, Tasktrack.Users.User
+    belongs_to :user, Tasktrack.Users.User
+    # TODO: ? restore the creator field
     timestamps()
   end
 
   @doc false
   def changeset(task, attrs) do
     task
-    |> cast(attrs, [:assignedto, :assignedby, :duration, :complete, :description])
-    |> validate_required([:assignedto, :assignedby, :duration, :complete, :description])
+    |> cast(attrs, [:complete, :description, :duration, :user_id])
+    |> validate_required([:complete, :description, :duration, :user_id])
   end
 end
