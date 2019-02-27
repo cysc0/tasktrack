@@ -19,3 +19,10 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/tasktrack](https://hexdocs.pm/tasktrack).
 
+TODO:
+better guards against current_user.admin and user.admin etc since that breaks errythang
+prevent overwriting users, only delete
+be sure admins can delete shit
+maybe admins can grant admin?
+figure out making the tasks
+  w/ dropdown for users

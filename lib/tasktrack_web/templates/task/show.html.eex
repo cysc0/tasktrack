@@ -8,11 +8,6 @@
   </li>
 
   <li>
-    <strong>Assignedto:</strong>
-    <%= @task.assignedto %>
-  </li>
-
-  <li>
     <strong>Description:</strong>
     <%= @task.description %>
   </li>
@@ -20,11 +15,6 @@
   <li>
     <strong>Duration:</strong>
     <%= @task.duration %>
-  </li>
-
-  <li>
-    <strong>Assignedby:</strong>
-    <%= @task.assignedby %>
   </li>
 
 </ul>

@@ -1,13 +1,11 @@
-<h1>Listing Tasks</h1>
+<h1>My Tasks</h1>
 
-<table class="table table-striped">
+<table>
   <thead>
     <tr>
       <th>Status</th>
-      <th>Assigned to</th>
-      <th>Description></th>
-      <th>Time spent></th>
-      <%# <th>Assigned by</th> %>
+      <th>Description</th>
+      <th>Duration</th>
 
       <th></th>
     </tr>
@@ -15,26 +13,18 @@
   <tbody>
 <%= for task <- @tasks do %>
     <tr>
-      <td><%= task.complete %></td>
-      <td><%= task.assignedto %></td>
-      <td><%= task.description %></td>
-      <td><%= task.duration %></td>
-      <%# <td><%= task.assignedby %></td> %>
-
-      <td>
-        <%= link "Show", to: Routes.task_path(@conn, :show, task),
-            class: "btn btn-secondary" %>
-        <%= link "Edit", to: Routes.task_path(@conn, :edit, task),
-            class: "btn btn-info" %>
-        <%= link "Delete", to: Routes.task_path(@conn, :delete, task),
-            method: :delete, data: [confirm: "Are you sure?"],
-            class: "btn btn-danger" %>
+      <td><%= if task.complete do %>
+       <input type="checkbox" disabled checked="checked">
+      <% else %>
+       <input type="checkbox" disabled>
+      <% end %>
       </td>
+      <td><%= link task.description, to: Routes.task_path(@conn, :show, task) %></td>
+      <td><%= task.duration %></td>
+
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span>
-  <%= link "New Task", to: Routes.task_path(@conn, :new), class: "btn btn-primary" %>
-</span>
+<span><%= link "New Task", to: Routes.task_path(@conn, :new) %></span>

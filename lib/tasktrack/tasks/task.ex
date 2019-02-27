@@ -5,10 +5,8 @@ defmodule Tasktrack.Tasks.Task do
   schema "tasks" do
     field :complete, :boolean, default: false
     field :description, :string
-    field :duration, :integer
-    # belongs_to :assignedby, Tasktrack.Users.User
+    field :duration, :integer, default: 0
     belongs_to :user, Tasktrack.Users.User
-    # TODO: ? restore the creator field
     timestamps()
   end
 

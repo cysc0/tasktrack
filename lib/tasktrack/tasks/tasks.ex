@@ -21,6 +21,12 @@ defmodule Tasktrack.Tasks do
     Repo.all(Task)
   end
 
+  def list_tasks_by_id(id) do
+    Repo.all(Task)
+    |> Enum.filter(fn x ->
+      x.user_id == id end)
+  end
+
   @doc """
   Gets a single task.
 
