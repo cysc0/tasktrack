@@ -20,8 +20,7 @@ defmodule TasktrackWeb.TaskController do
   def create(conn, %{"task" => task_params}) do
     # convert dict with string keys to atom keys: https://stackoverflow.com/a/31990445
     task = for {key, val} <- task_params, into: %{}, do: {String.to_atom(key), val}
-    taskMap = Map.put(task, :user, Users.get_user_by_name(task.user_id))
-    IO.inspect(taskMap)
+    taskMap = Map.put(task, :user_id, Integer.to_string(Users.get_user_by_name(task.user_id).id))
     case Tasks.create_task(taskMap) do
       {:ok, task} ->
         conn
@@ -34,9 +33,9 @@ defmodule TasktrackWeb.TaskController do
   end
 
   def show(conn, %{"id" => id}) do
-    if length(String.split(conn.request_path, "/")) > 1 do
+    if length(String.split(conn.request_path, "/")) > 2 do
       # if we are showing all of one's users tasks, generate many results
-      tasks = Tasks.list_tasks_by_id(id)
+      tasks = Tasks.list_tasks_by_id(Integer.parse(id)) # TODO:
       render(conn, "index.html", tasks: tasks)
     else
       # otherwise show a single task

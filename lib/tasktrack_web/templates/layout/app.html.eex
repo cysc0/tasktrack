@@ -12,7 +12,7 @@
         var element = document.getElementById("mytasks");
         var destination = element.getAttribute("data");
         var curDestination = element.href;
-        element.href = curDestination + "/" + destination;
+        element.href = curDestination + "/mytasks/" + destination;
       });
     </script>
   </head>

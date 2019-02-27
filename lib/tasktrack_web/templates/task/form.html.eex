@@ -10,8 +10,8 @@
     <div class="col-4">
       <div class="form-group">
         <%= label f, "Assign To" %>
-        <%= text_input f, :user %>
-        <%= error_tag f, :user %>
+        <%= text_input f, :user_id %>
+        <%= error_tag f, :user_id %>
       </div>
     </div>
     <div class="col-8">
