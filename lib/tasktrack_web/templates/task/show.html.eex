@@ -19,4 +19,8 @@
 
 </ul>
 
-<span><%= link "Edit", to: Routes.task_path(@conn, :edit, @task) %></span>
+<%= if @current_user do %>
+  <%= if @current_user.name == @task.user.name do %>
+    <span><%= link "Edit", to: Routes.task_path(@conn, :edit, @task) %></span>
+  <% end %>
+<% end %>

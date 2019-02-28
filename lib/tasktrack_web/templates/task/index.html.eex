@@ -10,7 +10,7 @@
       <th>Status</th>
       <th>Who</th>
       <th>Description</th>
-      <th>Duration</th>
+      <th>Time Spent (minutes)</th>
 
       <th></th>
     </tr>

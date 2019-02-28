@@ -39,3 +39,8 @@ Things I used JS for (3! lines total):
   It prevents undefined behavior, and I think it's a reasonable design decision
   since I feel that anyone (non-users) should be able to check up on
   other people's tasks.
+
+  For non-admins, the user page only displays username and admin status
+  For admins, they have the option to edit any user's name or delete them.
+  I've seeded 3 admin users, admin1, admin2, admin3 for demonstration purposes.
+  Admins can't be edited or deleted

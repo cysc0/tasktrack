@@ -4,6 +4,10 @@ Repo.insert(%User{name: "cisco", admin: true})
 Repo.insert(%User{name: "eric", admin: false})
 
 Repo.insert(%User{name: "david", admin: true})
+Repo.insert(%User{name: "admin1", admin: true})
+Repo.insert(%User{name: "admin2", admin: true})
+Repo.insert(%User{name: "admin3", admin: true})
+
 
 
 

@@ -17,10 +17,27 @@
     <div class="col-10">
       <div class="form-group">
         <%= label f, :description %>
-        <%= text_input f, :description %>
+        <%= textarea f, :description %>
         <%= error_tag f, :description %>
       </div>
     </div>
+
+    <div class="col-10">
+      <div class="form-group">
+        <%= label f, :duration %>
+        <%= number_input f, :duration, step: 15 %>
+        <%= error_tag f, :duration %>
+      </div>
+    </div>
+
+    <div class="col-10">
+      <div class="form-group">
+        <%= label f, :complete %>
+        <%= checkbox f, :complete %>
+        <%= error_tag f, :complete %>
+      </div>
+    </div>
+
   </div>
 
 
