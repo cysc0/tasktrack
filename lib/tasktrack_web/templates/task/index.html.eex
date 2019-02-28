@@ -43,5 +43,6 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link "New Task", class: "btn btn-lg btn-block btn-info", to: Routes.task_path(@conn, :new) %>
+<%= if @current_user do %>
+  <%= link "New Task", class: "btn btn-lg btn-block btn-info", to: Routes.task_path(@conn, :new) %>
+<% end %>
