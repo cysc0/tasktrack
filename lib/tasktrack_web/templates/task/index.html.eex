@@ -10,6 +10,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Status</th>
+      <th scope="col">Title</th>
       <%= if String.equivalent?(@conn.request_path, "/tasks") do %>
         <th scope="col">Who</th>
       <% end %>
@@ -28,13 +29,16 @@
             👎
           <% end %>
         </th>
+        <td>
+          <%= link task.title, to: Routes.task_path(@conn, :show, task) %>
+        </td>
         <%= if String.equivalent?(@conn.request_path, "/tasks") do %>
           <td>
             <%= link task.user.name, to: Routes.user_path(@conn, :show, task.user) %>
           </td>
         <% end %>
         <td id="tasks-description">
-          <%= link task.description, to: Routes.task_path(@conn, :show, task) %>
+          <%= task.description %>
         </td>
         <td>
           <%= task.duration %>

@@ -67,7 +67,6 @@ defmodule Tasktrack.Tasks do
 
   """
   def create_task(attrs \\ %{}) do
-    attrs = Map.put(attrs, :user, Users.get_user!(attrs.user_id))
     %Task{}
     |> Task.changeset(attrs)
     |> Repo.insert()

@@ -4,6 +4,7 @@ defmodule Tasktrack.Repo.Migrations.CreateTasks do
   def change do
     create table(:tasks) do
       add :complete, :boolean, default: false, null: false
+      add :title, :string, null: false
       add :description, :string, null: false
       add :duration, :integer, default: 0
       add :user_id, references(:users, on_delete: :delete_all), null: false

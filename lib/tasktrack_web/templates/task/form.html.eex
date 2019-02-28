@@ -17,12 +17,23 @@
         </td>
       </tr>
 
+
+      <tr class="form-group">
+        <th scope="row">
+          <%= label f, "Title" %>
+        </th>
+        <td id="table-content">
+          <%= text_input f, :title, required: true, placeholder: "Enter a Task Title" %>
+          <%= error_tag f, :title %>
+        </td>
+      </tr>
+
       <tr class="form-group">
         <th scope="row">
           <%= label f, :description %>
         </th>
         <td>
-          <%= textarea f, :description,  id: "task-description-entry", rows: "5", placeholder: "Describe this task!" %>
+          <%= textarea f, :description,  id: "task-description-entry", rows: "5", placeholder: "Describe this task", required: true %>
           <%= error_tag f, :description %>
         </td>
       </tr>

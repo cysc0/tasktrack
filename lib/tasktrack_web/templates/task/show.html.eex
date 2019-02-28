@@ -16,6 +16,14 @@
     </tr>
     <tr>
       <th scope="row">
+        Title
+      </th>
+      <td>
+        <%= @task.title %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
         Who
       </th>
       <td>
