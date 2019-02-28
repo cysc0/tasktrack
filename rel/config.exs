@@ -25,6 +25,8 @@ use Mix.Releases.Config,
 # and environment configuration is called a profile
 
 get_secret = fn name ->
+  # Secret generation hack by Nat Tuck for CS4550
+  # This function is dedicated to the public domain.
   base = Path.expand("~/.config/tasktrack")
   File.mkdir_p!(base)
   path = Path.join(base, name)
