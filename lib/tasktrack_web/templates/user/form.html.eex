@@ -6,12 +6,22 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name %>
-    <%= text_input f, :name, class: "form-control" %>
-    <%= error_tag f, :name %>
+    
   </div>
 
-  <div>
-    <%= submit "Register", class: "btn btn-primary"%>
-  </div>
+  <table class="table table-borderless">
+    <tbody>
+      <tr class="form-group">
+        <th scope="row">
+          <%= label f, :name %>
+        </th>
+        <td>
+          <%= text_input f, :name, class: "form-control" %>
+          <%= error_tag f, :name %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <%= submit "Register", class: "btn btn-lg btn-block btn-warning"%>
 <% end %>

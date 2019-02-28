@@ -1,36 +1,47 @@
+<%# table design copied from bootstrap4 example https://getbootstrap.com/docs/4.0/content/tables/ %>
+
 <%= if String.equivalent?(@conn.request_path, "/tasks") do %>
   <h1>Tasks</h1>
 <% else %>
   <h1>My Tasks</h1>
 <% end %>
 
-<table>
-  <thead>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark">
     <tr>
-      <th>Status</th>
-      <th>Who</th>
-      <th>Description</th>
-      <th>Time Spent (minutes)</th>
-
-      <th></th>
+      <th scope="col">Status</th>
+      <%= if String.equivalent?(@conn.request_path, "/tasks") do %>
+        <th scope="col">Who</th>
+      <% end %>
+      <th scope="col">Description</th>
+      <th scope="col">Time Spent (minutes)</th>
     </tr>
   </thead>
-  <tbody>
-<%= for task <- @tasks do %>
-    <tr>
-      <td><%= if task.complete do %>
-        👍
-      <% else %>
-        👎
-      <% end %>
-      </td>
-      <td><%= link task.user.name, to: Routes.user_path(@conn, :show, task.user) %></td>
-      <td><%= link task.description, to: Routes.task_path(@conn, :show, task) %></td>
-      <td><%= task.duration %></td>
 
-    </tr>
-<% end %>
+  <tbody>
+    <%= for task <- @tasks do %>
+      <tr>
+        <th scope="row">
+          <%= if task.complete do %>
+            👍
+          <% else %>
+            👎
+          <% end %>
+        </th>
+        <%= if String.equivalent?(@conn.request_path, "/tasks") do %>
+          <td>
+            <%= link task.user.name, to: Routes.user_path(@conn, :show, task.user) %>
+          </td>
+        <% end %>
+        <td id="tasks-description">
+          <%= link task.description, to: Routes.task_path(@conn, :show, task) %>
+        </td>
+        <td>
+          <%= task.duration %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
-<span><%= link "New Task", to: Routes.task_path(@conn, :new) %></span>
+<%= link "New Task", class: "btn btn-lg btn-block btn-warning", to: Routes.task_path(@conn, :new) %>

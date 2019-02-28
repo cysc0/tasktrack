@@ -20,12 +20,6 @@ and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/tasktrack](https://hexdocs.pm/tasktrack).
 
 TODO:
-better guards against current_user.admin and user.admin etc since that breaks errythang
-prevent overwriting users, only delete
-be sure admins can delete shit
-maybe admins can grant admin?
-figure out making the tasks
-  w/ dropdown for users
 
 Things I used JS for (3! lines total):
   In page/index.html.eex:
@@ -44,3 +38,4 @@ Things I used JS for (3! lines total):
   For admins, they have the option to edit any user's name or delete them.
   I've seeded 3 admin users, admin1, admin2, admin3 for demonstration purposes.
   Admins can't be edited or deleted
+
