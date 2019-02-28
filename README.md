@@ -17,9 +17,7 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/tasktrack](https://hexdocs.pm/tasktrack).
 
-------
-
-## Design Decisions etc.
+# Design Decisions etc.
 
 ### Things I used JS for (3! lines total):
   #### In page/index.html.eex:
