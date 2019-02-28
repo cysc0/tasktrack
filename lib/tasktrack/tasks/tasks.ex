@@ -7,7 +7,6 @@ defmodule Tasktrack.Tasks do
   alias Tasktrack.Repo
 
   alias Tasktrack.Tasks.Task
-  alias Tasktrack.Users
 
   @doc """
   Returns the list of tasks.
