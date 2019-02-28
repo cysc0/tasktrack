@@ -32,7 +32,7 @@
           <%= label f, :duration %>
         </th>
         <td>
-          <%= number_input f, :duration, step: 15 %>
+          <%= number_input f, :duration, min: 0, step: 15 %>
           <%= error_tag f, :duration %>
         </td>
       </tr>

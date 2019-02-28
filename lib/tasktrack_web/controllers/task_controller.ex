@@ -22,14 +22,27 @@ defmodule TasktrackWeb.TaskController do
     # this is bad since i should have written a proper query but im in a rush rn
     task = for {key, val} <- task_params, into: %{}, do: {String.to_atom(key), val}
     taskMap = Map.put(task, :user_id, Integer.to_string(Users.get_user_by_name(task.user_id).id))
-    case Tasks.create_task(taskMap) do
-      {:ok, task} ->
-        conn
-        |> put_flash(:info, "Task created successfully.")
-        |> redirect(to: Routes.task_path(conn, :show, task))
+    # these cases are lazy but like i said im in a rush rn lol
+    if Map.get(taskMap, :description) == "" do
+      case Tasks.create_task(Map.put(taskMap, :description, conn.assigns.current_user.name <> " was too lazy to describe this task. Go yell at them!")) do
+        {:ok, task} ->
+          conn
+          |> put_flash(:info, "Task created successfully.")
+          |> redirect(to: Routes.task_path(conn, :show, task))
+  
+        {:error, %Ecto.Changeset{} = changeset} ->
+          render(conn, "new.html", changeset: changeset)
+      end
+    else
+      case Tasks.create_task(taskMap) do
+        {:ok, task} ->
+          conn
+          |> put_flash(:info, "Task created successfully.")
+          |> redirect(to: Routes.task_path(conn, :show, task))
 
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        {:error, %Ecto.Changeset{} = changeset} ->
+          render(conn, "new.html", changeset: changeset)
+      end
     end
   end
 
