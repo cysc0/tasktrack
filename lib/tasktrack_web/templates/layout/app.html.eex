@@ -45,7 +45,7 @@
               Hi, <%= @current_user.name %>&nbsp;
               </div>
               <div>
-              <%= link("Logout", class: "btn btn-secondary btn-sm", to: Routes.session_path(@conn, :delete),
+              <%= link("Logout", class: "btn btn-secondary", to: Routes.session_path(@conn, :delete),
                 method: :delete) %>
               </div>
             <% else %>
