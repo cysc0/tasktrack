@@ -22,9 +22,9 @@ defmodule Tasktrack.Tasks do
   end
 
   def list_tasks_by_id(id) do
-    Repo.all(Task)
-    |> Enum.filter(fn x ->
-      x.user_id == id end)
+    query = from t in Task,
+            where: t.user_id == ^id
+    Repo.all(query)
   end
 
   @doc """

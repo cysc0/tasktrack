@@ -11,8 +11,7 @@
       document.addEventListener("DOMContentLoaded", function() {
         var element = document.getElementById("mytasks");
         var destination = element.getAttribute("data");
-        var curDestination = element.href;
-        element.href = curDestination + "/mytasks/" + destination;
+        element.href = "/mytasks/" + destination;
       });
     </script>
   </head>

@@ -55,9 +55,12 @@ defmodule TasktrackWeb.TaskController do
   end
 
   def show(conn, %{"id" => id}) do
-    if length(String.split(conn.request_path, "/")) > 2 do
+    {curPath, _} = List.pop_at(String.split(conn.request_path, "/"), 1)
+    {uid, _} = Integer.parse(id)
+    if String.equivalent?(curPath, "mytasks") do
       # if we are showing all of one's users tasks, generate many results
-      tasks = Tasks.list_tasks_by_id(Integer.parse(id)) # TODO:
+      tasks = Tasks.list_tasks_by_id(uid) # TODO:
+      IO.inspect(tasks)
       render(conn, "index.html", tasks: tasks)
     else
       # otherwise show a single task
