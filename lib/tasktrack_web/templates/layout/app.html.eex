@@ -18,42 +18,46 @@
 
   </head>
   <body>
-    <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-light bg-white">
-        <div class="col-4">
-          <a class="navbar-brand" href="/">Tasktrack</a>
-        </div>
-        <div class="col-4">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/tasks">Tasks</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/users">Users</a>
-            </li>
-            <li class="nav-item">
-              <%= if @current_user do %>
-                <a id="mytasks" class="nav-link" href="/tasks" data=<%= @current_user.id %>>My Tasks</a>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-        <div class="col-4">
-          <%= if @current_user do %>
-            <p class="my-3">
-              User: <%= @current_user.name %> |
-              <%= link("Logout", to: Routes.session_path(@conn, :delete),
+    <div class="container" id="navbar">
+      <div>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white">
+          <div class="col-4" id="home-link">
+            <a class="navbar-brand" href="/">Tasktrack</a>
+          </div>
+          <div class="col" id="nav-tabs">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/tasks">Tasks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users">Users</a>
+              </li>
+              <li class="nav-item">
+                <%= if @current_user do %>
+                  <a id="mytasks" class="nav-link" href="/tasks" data=<%= @current_user.id %>>My Tasks</a>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <div class="col-4" id="session-info">
+            <%= if @current_user do %>
+              <div id="greeting">
+              Hi, <%= @current_user.name %>&nbsp;
+              </div>
+              <div>
+              <%= link("Logout", class: "btn btn-secondary btn-sm", to: Routes.session_path(@conn, :delete),
                 method: :delete) %>
-            </p>
-          <% else %>
-            <%= form_for @conn, Routes.session_path(@conn, :create),
-                    [class: "form-inline"], fn f -> %>
-              <%= text_input f, :name, class: "form-control" %>
-              <%= submit "Login", class: "btn btn-secondary" %>
+              </div>
+            <% else %>
+              <%= form_for @conn, Routes.session_path(@conn, :create),
+                      [class: "form-inline"], fn f -> %>
+                <%= text_input f, :name, class: "form-control" %>
+                <%= submit "Login", class: "btn btn-success" %>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      </nav>
+          </div>
+        </nav>
+      </div>
 
       <div class="row">
         <div class="col-12">

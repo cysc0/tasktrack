@@ -44,4 +44,4 @@
   </tbody>
 </table>
 
-<%= link "New Task", class: "btn btn-lg btn-block btn-warning", to: Routes.task_path(@conn, :new) %>
+<%= link "New Task", class: "btn btn-lg btn-block btn-info", to: Routes.task_path(@conn, :new) %>

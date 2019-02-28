@@ -12,12 +12,12 @@
     <%= for user <- @users do %>
       <tr>
         <th scope="row"><%=user.id %></th>
-        <td><%= link user.name, to: Routes.user_path(@conn, :show, user) %></td>
+        <td id="table-content"><%= link user.name, to: Routes.user_path(@conn, :show, user) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <%= if @current_user do %>
-  <%= link "New User", class: "btn btn-lg btn-block btn-warning", to: Routes.user_path(@conn, :new) %>
+  <%= link "New User", class: "btn btn-lg btn-block btn-info", to: Routes.user_path(@conn, :new) %>
 <% end %>

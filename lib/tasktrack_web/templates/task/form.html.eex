@@ -11,7 +11,7 @@
         <th scope="row">
           <%= label f, "Assign To" %>
         </th>
-        <td>
+        <td id="table-content">
           <%= select f, :user_id, assigns[:userList] %>
           <%= error_tag f, :user_id %>
         </td>
@@ -22,7 +22,7 @@
           <%= label f, :description %>
         </th>
         <td>
-          <%= textarea f, :description %>
+          <%= textarea f, :description,  id: "task-description-entry", rows: "5", placeholder: "Describe this task!" %>
           <%= error_tag f, :description %>
         </td>
       </tr>
@@ -37,18 +37,20 @@
         </td>
       </tr>
 
-      <tr class="form-group">
-        <th scope="row">
-          <%= label f, :complete %>
-        </th>
-        <td>
-          <%= checkbox f, :complete %>
-          <%= error_tag f, :complete %>
-        </td>
-      </tr>
+      <%= if not String.equivalent?(@conn.request_path, "/tasks/new") do %>
+        <tr class="form-group">
+          <th scope="row">
+            <%= label f, :complete %>
+          </th>
+          <td>
+            <%= checkbox f, :complete, id: "task-checkbox" %>
+            <%= error_tag f, :complete %>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
       
-<%= submit "Save", class: "btn btn-lg btn-block btn-warning" %>
+<%= submit "Save", class: "btn btn-lg btn-block btn-success" %>
 
 <% end %>

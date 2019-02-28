@@ -9,19 +9,23 @@
     
   </div>
 
-  <table class="table table-borderless">
+  <table class="table table-striped table-bordered">
     <tbody>
       <tr class="form-group">
         <th scope="row">
           <%= label f, :name %>
         </th>
-        <td>
+        <td id="table-content">
           <%= text_input f, :name, class: "form-control" %>
           <%= error_tag f, :name %>
         </td>
       </tr>
     </tbody>
   </table>
-
-  <%= submit "Register", class: "btn btn-lg btn-block btn-warning"%>
+  <%= if length(String.split(@conn.request_path, "/")) == 4 do %>
+    <%#  new user vs edit user%>
+    <%= submit "Save", class: "btn btn-lg btn-block btn-success"%>
+  <% else %>
+    <%= submit "Register", class: "btn btn-lg btn-block btn-success"%>
+  <% end %>
 <% end %>

@@ -7,6 +7,6 @@
 <div class="row">
   <div class="col-12">
     <h1>Welcome to Tasktrack</h1>
-    <p><%= link "Register", to: Routes.user_path(@conn, :new) %></p>
+    <%= link "Sign Up", class: "btn btn-lg btn-block btn-info", to: Routes.user_path(@conn, :new) %>
   </div>
 </div>

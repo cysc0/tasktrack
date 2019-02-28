@@ -2,6 +2,40 @@
 
 @import "~bootstrap/scss/bootstrap";
 
-#tasks-description{
+#tasks-description {
     word-break: break-all;
+}
+
+#task-description-entry {
+    width: 100%;
+}
+
+#table-content {
+    width: 100%;
+}
+
+#navbar {
+    position: relative;
+}
+
+#home-link {
+    padding-left: 0;
+    margin-left: 0;
+    left: 0;
+}
+
+#session-info {
+        position: absolute;
+        right: 0;
+        display: inline-flex;
+        justify-content: flex-end;
+}
+
+#greeting {
+    display: inline;
+}
+
+#task-checkbox {
+    width: 30px;
+    height: 30px;
 }

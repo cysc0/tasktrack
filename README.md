@@ -20,6 +20,8 @@ and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/tasktrack](https://hexdocs.pm/tasktrack).
 
 TODO:
+prevent negative duration
+null text breaks shit
 
 Things I used JS for (3! lines total):
   In page/index.html.eex:
@@ -37,5 +39,5 @@ Things I used JS for (3! lines total):
   For non-admins, the user page only displays username and admin status
   For admins, they have the option to edit any user's name or delete them.
   I've seeded 3 admin users, admin1, admin2, admin3 for demonstration purposes.
-  Admins can't be edited or deleted
+  Admins can only be edited or deleted by themselves.
 
