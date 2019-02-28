@@ -19,12 +19,12 @@ be found at [https://hexdocs.pm/tasktrack](https://hexdocs.pm/tasktrack).
 
 ## Design Decisions etc.
 
-Things I used JS for (3! lines total):
-  In page/index.html.eex:
+Things I used JS for (3! lines total):  
+  In page/index.html.eex:  
   If there is an active user session, any attempt to go to the home screen will
   send the user to the main tasks page.
 
-  In app.html.eex:
+  In app.html.eex:  
   I used a minimal amount of javascript to configure the My Tasks link
   I did it this way because that route is dependent on there being an active
   user session, so that behavior is hidden for non-signed in users
@@ -32,7 +32,7 @@ Things I used JS for (3! lines total):
   since I feel that anyone (non-users) should be able to check up on
   other people's tasks.
 
-User Info
+User Info  
   For non-admins, the user page only displays username and admin status
   For admins, they have the option to edit any user's name or delete them.
   I've seeded 3 admin users, admin1, admin2, admin3 for demonstration purposes.
@@ -41,7 +41,7 @@ User Info
   The user page displays all registered users, with each username
   serving as a link to that user's info.
 
-Task Info
+Task Info  
   The main task page displays all tasks for all users. Each task offers
   a link to the corresponding user's page, and a link to the corresponding task.
 
