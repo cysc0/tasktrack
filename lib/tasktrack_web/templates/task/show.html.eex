@@ -16,6 +16,14 @@
     </tr>
     <tr>
       <th scope="row">
+        Who
+      </th>
+      <td>
+        <%= @task.user.name %>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
         Description
       </th>
       <td id="tasks-description">
