@@ -17,6 +17,8 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/tasktrack](https://hexdocs.pm/tasktrack).
 
+------
+
 ## Design Decisions etc.
 
 ### Things I used JS for (3! lines total):
@@ -31,6 +33,8 @@ be found at [https://hexdocs.pm/tasktrack](https://hexdocs.pm/tasktrack).
   It prevents undefined behavior, and I think it's a reasonable design decision
   since I feel that anyone (non-users) should be able to check up on
   other people's tasks.
+
+------
 
 ### User Info
   For non-admins, the user page only displays username and admin status
