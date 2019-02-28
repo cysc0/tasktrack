@@ -7,6 +7,7 @@ defmodule Tasktrack.Tasks do
   alias Tasktrack.Repo
 
   alias Tasktrack.Tasks.Task
+  alias Tasktrack.Users
 
   @doc """
   Returns the list of tasks.
@@ -19,12 +20,19 @@ defmodule Tasktrack.Tasks do
   """
   def list_tasks do
     Repo.all(Task)
+    |> Repo.preload(:user)
+  end
+
+  def list_tasks_with_names do
+    Repo.all(Task)
+    |> Repo.preload(:user)
   end
 
   def list_tasks_by_id(id) do
     query = from t in Task,
             where: t.user_id == ^id
     Repo.all(query)
+    |> Repo.preload(:user)
   end
 
   @doc """
@@ -56,6 +64,7 @@ defmodule Tasktrack.Tasks do
 
   """
   def create_task(attrs \\ %{}) do
+    attrs = Map.put(attrs, :user, Users.get_user!(attrs.user_id))
     %Task{}
     |> Task.changeset(attrs)
     |> Repo.insert()

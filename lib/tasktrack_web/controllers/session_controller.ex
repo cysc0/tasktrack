@@ -10,7 +10,7 @@ defmodule TasktrackWeb.SessionController do
         |> redirect(to: Routes.page_path(conn, :index))
       else
         conn
-        |> put_flash(:error, "Login failed.")
+        |> put_flash(:error, "Login failed")
         |> redirect(to: Routes.page_path(conn, :index))
       end
     end

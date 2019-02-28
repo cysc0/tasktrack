@@ -40,8 +40,14 @@ defmodule Tasktrack.Users do
 
   def get_user(id) do
     Repo.one from u in User,
-      where: u.id == ^id
-      # preload: [tasks: :task] #TODO: do we need?
+      where: u.id == ^id,
+      preload: [:tasks]
+  end
+
+  def get_user_names() do
+    query = from u in User,
+            select: u.name
+    Repo.all(query)
   end
 
   def get_user_by_name(name) do

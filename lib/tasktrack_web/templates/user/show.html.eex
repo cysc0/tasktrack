@@ -18,10 +18,4 @@
       </td>
   <% end %>
 
-  <%= if @user.admin and @current_user.name == @user.name do %>
-    <td>
-      <%= link "Edit", to: Routes.user_path(@conn, :edit, @user) %>
-    </td>
-  <% end %>
-
 </ul>

@@ -1,9 +1,14 @@
-<h1>My Tasks</h1>
+<%= if String.equivalent?(@conn.request_path, "/tasks") do %>
+  <h1>Tasks</h1>
+<% else %>
+  <h1>My Tasks</h1>
+<% end %>
 
 <table>
   <thead>
     <tr>
       <th>Status</th>
+      <th>Who</th>
       <th>Description</th>
       <th>Duration</th>
 
@@ -14,11 +19,12 @@
 <%= for task <- @tasks do %>
     <tr>
       <td><%= if task.complete do %>
-       <input type="checkbox" disabled checked="checked">
+        👍
       <% else %>
-       <input type="checkbox" disabled>
+        👎
       <% end %>
       </td>
+      <td><%= link task.user.name, to: Routes.user_path(@conn, :show, task.user) %></td>
       <td><%= link task.description, to: Routes.task_path(@conn, :show, task) %></td>
       <td><%= task.duration %></td>
 

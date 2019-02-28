@@ -26,3 +26,16 @@ be sure admins can delete shit
 maybe admins can grant admin?
 figure out making the tasks
   w/ dropdown for users
+
+Things I used JS for (3! lines total):
+  In page/index.html.eex:
+  If there is an active user session, any attempt to go to the home screen will
+  send the user to the main tasks page.
+
+  In app.html.eex:
+  I used a minimal amount of javascript to configure the My Tasks link
+  I did it this way because that route is dependent on there being an active
+  user session, so that behavior is hidden for non-signed in users
+  It prevents undefined behavior, and I think it's a reasonable design decision
+  since I feel that anyone (non-users) should be able to check up on
+  other people's tasks.

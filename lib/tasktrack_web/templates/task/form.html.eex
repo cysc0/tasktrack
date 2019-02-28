@@ -7,14 +7,14 @@
 
 
   <div class="row">
-    <div class="col-4">
+    <div class="col-2">
       <div class="form-group">
         <%= label f, "Assign To" %>
-        <%= text_input f, :user_id %>
+        <%= select f, :user_id, assigns[:userList] %>
         <%= error_tag f, :user_id %>
       </div>
     </div>
-    <div class="col-8">
+    <div class="col-10">
       <div class="form-group">
         <%= label f, :description %>
         <%= text_input f, :description %>

@@ -7,36 +7,15 @@ defmodule TasktrackWeb.TaskController do
 
   def index(conn, _params) do
     tasks = Tasks.list_tasks()
+    tasks2 = Tasks.list_tasks_with_names()
     render(conn, "index.html", tasks: tasks)
   end
 
   def new(conn, _params) do
     # TODO: lord
-    # IO.write("FJEIOJFIOSJFIOS")
-    # IO.write("FJEIOJFIOSJFIOS")
-    # IO.write("FJEIOJFIOSJFIOS")
-    # IO.write("FJEIOJFIOSJFIOS")
-    # allUsers = Users.list_user_names()
-    # IO.inspect(allUsers)
-    # IO.write("^^^^^^")
-    # lol = Map.from_struct(allUsers)
-    # userList = []
-    # Enum.filter(allUsers, fn x ->)
-    # # lol = Enum.map(allUsers, fn x -> struct(x) end)
-    # IO.inspect(lol)
-    # Enum.flat_map(allUsers, fn x -> 
-    #   IO.inspect(x)
-    # end)
-    # IO.inspect(Map.fetch(allUsers, :name))
-    # lol = 
-    # IO.inspect(lol)
-    # allUsers = Map.from_struct(allUsers[0])
-    # IO.inspect(Map.take(allUsers, "name"))
-    # allUsers = Map.take(Map.from_struct(allUsers), [:name])
-    # IO.inspect(userList)
-    # IO.inspect(allUsers)
+    userList = Users.get_user_names()
     changeset = Tasks.change_task(%Task{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, userList: userList)
   end
 
   def create(conn, %{"task" => task_params}) do
@@ -60,7 +39,6 @@ defmodule TasktrackWeb.TaskController do
     if String.equivalent?(curPath, "mytasks") do
       # if we are showing all of one's users tasks, generate many results
       tasks = Tasks.list_tasks_by_id(uid) # TODO:
-      IO.inspect(tasks)
       render(conn, "index.html", tasks: tasks)
     else
       # otherwise show a single task
