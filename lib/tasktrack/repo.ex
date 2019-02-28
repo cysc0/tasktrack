@@ -1,5 +1,3 @@
 defmodule Tasktrack.Repo do
-  use Ecto.Repo,
-  otp_app: :tasktrack,
-  adapter: Ecto.Adapters.Postgres
+  use Ecto.Repo, otp_app: :tasktrack
 end

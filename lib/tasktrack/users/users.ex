@@ -7,6 +7,7 @@ defmodule Tasktrack.Users do
   alias Tasktrack.Repo
 
   alias Tasktrack.Users.User
+  alias Tasktrack.Tasks
 
   @doc """
   Returns the list of users.
@@ -39,8 +40,8 @@ defmodule Tasktrack.Users do
 
   def get_user(id) do
     Repo.one from u in User,
-      where: u.id == ^id,
-      preload: [tasks: :task]
+      where: u.id == ^id
+      # preload: [tasks: :task] #TODO: do we need?
   end
 
   def get_user_by_name(name) do

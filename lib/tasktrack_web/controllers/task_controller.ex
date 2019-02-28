@@ -7,12 +7,34 @@ defmodule TasktrackWeb.TaskController do
 
   def index(conn, _params) do
     tasks = Tasks.list_tasks()
-    IO.inspect(tasks)
-    IO.write("%^^%%%%Z4")
     render(conn, "index.html", tasks: tasks)
   end
 
   def new(conn, _params) do
+    # TODO: lord
+    # IO.write("FJEIOJFIOSJFIOS")
+    # IO.write("FJEIOJFIOSJFIOS")
+    # IO.write("FJEIOJFIOSJFIOS")
+    # IO.write("FJEIOJFIOSJFIOS")
+    # allUsers = Users.list_user_names()
+    # IO.inspect(allUsers)
+    # IO.write("^^^^^^")
+    # lol = Map.from_struct(allUsers)
+    # userList = []
+    # Enum.filter(allUsers, fn x ->)
+    # # lol = Enum.map(allUsers, fn x -> struct(x) end)
+    # IO.inspect(lol)
+    # Enum.flat_map(allUsers, fn x -> 
+    #   IO.inspect(x)
+    # end)
+    # IO.inspect(Map.fetch(allUsers, :name))
+    # lol = 
+    # IO.inspect(lol)
+    # allUsers = Map.from_struct(allUsers[0])
+    # IO.inspect(Map.take(allUsers, "name"))
+    # allUsers = Map.take(Map.from_struct(allUsers), [:name])
+    # IO.inspect(userList)
+    # IO.inspect(allUsers)
     changeset = Tasks.change_task(%Task{})
     render(conn, "new.html", changeset: changeset)
   end

@@ -5,6 +5,14 @@
 # is restricted to this project.
 use Mix.Config
 
+config :tasktrack, Tasktrack.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "tasktrack_repo",
+  username: "user",
+  password: "pass",
+  hostname: "localhost"
+
+
 # General application configuration
 config :tasktrack,
   ecto_repos: [Tasktrack.Repo]
